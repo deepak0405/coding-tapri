@@ -30,7 +30,7 @@ In LDAP, you store all these information in a server(referred as ldap server) an
 
 <br>
 <p align="center">
-<img src="/assets/images/ldap/ldap_entry.png" width="600" height="400">
+<img src="{{ site.baseurl }}/assets/images/ldap/ldap_entry.png" width="600" height="400">
 </p>
 
 <br>
