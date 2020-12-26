@@ -21,8 +21,8 @@
 title: Coding Tapri
 description: >- # this means to ignore newlines until "baseurl:"
   Take a cup of tea and join me in understanding the complex tech frameworks and coding concepts.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /PROJECT
+url: http://deepak0405.github.io
 github_username:  deepak0405
 
 # Build settings
@@ -39,6 +39,7 @@ minima:
 ### Other settings
 excerpt_separator: <!--more-->
 show_excerpts: true # set to true to show excerpts on the homepage
+root: /octo-5.
 
 # Exclude from processing.
 # The following items will not be processed, by default.
