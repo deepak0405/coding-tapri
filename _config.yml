@@ -20,7 +20,7 @@
 
 title: Coding Tapri
 description: >- # this means to ignore newlines until "baseurl:"
-  Take a cup of tea and join me in understanding the complex tech frameworks and coding concepts.
+  Chai par Charcha!!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  deepak0405
@@ -33,7 +33,8 @@ plugins:
 minima:
   social_links:
     github: deepak0405
-    stackoverflow: "7003331"  
+    stackoverflow: 7003331
+    linkedin: deepak-patankar-797622148
 
 
 ### Other settings
