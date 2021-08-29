@@ -2,6 +2,7 @@
 layout: post
 title:  "Difference between Merge and Rebase"
 date:   2021-08-29
+comments_id: 2
 ---
 
 In my initial days of git, I was a lot confused about merge and rebase. Though both works, it was not much clear which one to use. This post dives into the basic difference between the two.

@@ -2,6 +2,7 @@
 layout: post
 title:  "A Beginners guide to LDAP"
 date:   2020-12-26 15:39:31 +0530
+comments_id: 1
 ---
 
 The name `Lightweight Directory Access Protocol` doesn't directly give even us idea about what this tech is and what it is used for. The first time I was reading it, I was confused because of the jargon words used in the blogs. In this blog I tried explaining the ldap concepts, hope you enjoy it!!
