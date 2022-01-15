@@ -10,7 +10,7 @@ I came across a very interesting problem of aggregating our data stored in mongo
 
 ### Problem Statement And Solutions
 
-I had the data of status of a pipeline with the timestamp(epoch time). The status of a pipeline can be SUCCESS or FAILED. We wanted to find out the count of success and failures in each day/hour. The input I got was startTime and endTime interval, and I had to group the data by either days or either by hours. This looks like a very easy problem and can be solved by just grouping by date, month and year. The mongodb query will look something like
+I had the data of status of a pipeline with the timestamp(epoch time). The status of a pipeline can be SUCCESS or FAILED. The task at hand was to group the documents based on success and failures in each day/hour. The input I got was startTime and endTime interval, and I had to group the data by either days or either by hours. This looks like a very easy problem and can be solved by just grouping by date, month and year. The mongodb query will look something like
 
 ```
     aggregate([
