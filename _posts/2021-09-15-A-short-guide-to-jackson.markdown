@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Aggregating data by days or hours in MongoDB"
-date:   2020-10-31 15:39:31 +0530
-comments_id: 3
+title:  "A short guide to Jackson"
+date:   2021-09-15 15:39:31 +0530
+comments_id: 4
 ---
 
 I came across a very interesting problem of aggregating our data stored in mongodb by day. Though at the first look it seems like a very easy problem, but taking care of the time zones in the aggregation pipeline makes it a little interesting. In this blog I will walk you through how we can solve this problem and the various challenges involved in the path.
