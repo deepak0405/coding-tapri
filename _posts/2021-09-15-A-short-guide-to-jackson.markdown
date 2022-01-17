@@ -1,39 +1,63 @@
 ---
 layout: post
-title:  "A short guide to Jackson"
+title:  "A short guide on java polymorphic deserialization"
 date:   2021-09-15 15:39:31 +0530
-comments_id: 4
+comments_id: 6
 ---
 
-I came across a very interesting problem of aggregating our data stored in mongodb by day. Though at the first look it seems like a very easy problem, but taking care of the time zones in the aggregation pipeline makes it a little interesting. In this blog I will walk you through how we can solve this problem and the various challenges involved in the path.
-<!--more-->
+Jackson is the java library to perform serialization and deserialization. So whenever we want to convert a JSON to Java object (deserialization) or whenever we want to convert a Java Object to JSON, we can use the jackson library.
 
-### Problem Statement And Solutions
+The polymorphic deserialization refers to deserializing the JSON into any of the subclass based on the type information present in the JSON.
 
-I had the data of status of a pipeline with the timestamp(epoch time). The status of a pipeline can be SUCCESS or FAILED. The task at hand was to group the documents based on success and failures in each day/hour. The input I got was startTime and endTime interval, and I had to group the data by either days or either by hours. This looks like a very easy problem and can be solved by just grouping by date, month and year. The mongodb query will look something like
+Take an example of Zoo class. If we are given a JSON representation of the zoo class, how our java runtime will know whether it should create an object of type Dog or Cat ?
+
 
 ```
-aggregate([
-    {
-        '$project': {
-            newFieldName: {'$dateToString': {format: '%Y-%m-%d', date: '$yourDateFieldName'}}
-        }
-    }, {
-        '$group': {
-            _id: {newFieldName: '$newFieldName'},
-            viewCount: {'$sum': 1}
-        }
-    }, 
-    {'$sort': {'_id.newFieldName': 1}}
-], {})
+  public class Zoo {
+    public Animal animal;
+  }
 
+  static class Animal { // All animals have names, for our demo purposes... 
+     public String name;
+     protected Animal() { }
+  }
+
+  static class Dog extends Animal {
+    public double barkVolume; // in decibels
+    public Dog() { }
+  }
+
+  static class Cat extends Animal {
+    boolean likesCream;
+    public int lives;
+    public Cat() { }
+  }
 ```
 
-But there is an issue with this approach, the above code gives correct result for the UTC time zone as we are converting the time to the UTC zone, but won't work for the other time zones. 
+We can use the jackson annotation to let the library know how it can serialize/deserialize a particular object.
 
-To solve this issue I used the [bucket](https://docs.mongodb.com/manual/reference/operator/aggregation/bucket/) concept from the mongodb. This stage categories the input documents into buckets and outputs a document for each bucket.
+The annotation is applied on the parent class as shown below
 
-To solve the aggregation problem I asked the client to give the startTime and endTime according to their timezone. Once I get the start and endTime, I created buckets between this time, where each buckets represents a day. After using the bucket operation I got the documents belonging to that particular day.
+```
+ @JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
+ class Animal { } 
+```
+
+### What does that mean?
+
+* All instances of annotated type and its subtypes use these settings (unless overridden by another annotation)
+* "Type identifier" to use is fully-qualified Java class name (like "org.codehaus.jackson.sample.Animal")
+* Type identifier is to be included as a (meta-)property, along with regular data properties; using name "@class" (default name to use depend on type if: for classes it would be "@class")
+* Use default type resolver (no @JsonTypeResolver added); as well as default type id resolver (no @JsonTypeIdResolver)
 
 
-To solve the aggregation problem for hours, we will create buckets of size 1 hours instead of one day.
+### We could have chosen differently as follows:
+
+* Type id: possible choices are CLASS (fully-qualified Java class name), MINIMAL_CLASS (relative Java class name, if base class and sub-class are in same package, leave out package name), NAME (use logical name, separately defined, to determine actual class) and CUSTOM (type id handled using custom resolver)
+* Inclusion: possible choices are PROPERTY (include as regular property along with member properties), WRAPPER_OBJECT (use additional JSON wrapper object; type id used as field name, actual serializer Object as value), WRAPPER_ARRAY (first element is type id; second element serialized Object)
+* Property name: for inclusion method of PROPERTY, can use any name; defaults depend on type id.
+* To plug in custom type id resolver use @JsonTypeIdResolver
+* To plug in custom type resolver use @JsonTypeResolver
+
+
+Reference: https://github.com/FasterXML/jackson-docs/wiki/JacksonPolymorphicDeserialization
