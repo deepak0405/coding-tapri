@@ -11,7 +11,7 @@ In this blog, I will walk you through a brief overview of the Tech architecture.
 <!--more-->
 
 ## User Flow
-![User Flow]("{{ site.baseurl }}/assets/images/health-id/flow.png")
+![User Flow]("/assets/images/health-id/flow.png")
 
 ## Common Use Cases
 
@@ -44,7 +44,7 @@ So who would create the HIU and HIP? As per the current architecture, private co
 The actual tech flows involve a lot of services in between like Gateway, Registry, Consent Manager etc. To keep the blog simple, I have removed some of those flows.
 
 The below diagram depicts a top-level flow between the various services.
-![Tech Arch]("{{ site.baseurl }}/assets/images/health-id/tech.jpeg")
+![Tech Arch]("/assets/images/health-id/tech.jpeg")
 
 
 ## Summary

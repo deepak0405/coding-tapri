@@ -9,7 +9,7 @@ After working on REST APIs for some years, I shifted to the graphql APIs. Though
 
 <!--more-->
 
-### Why graphql was created ?
+### Why GraphQL was created ?
 As per the rest API convention, we create CRUD and other apis for a resource. Lets say we are designing a study portal for a school. And we want to return the results of all the students of a course. By Rest APIs, we might design it as
 
 1. We will call one api which takes course id and gives us the result of each student. Here in most of the cases we store only the userId and won't store other metadata like his name etc.
