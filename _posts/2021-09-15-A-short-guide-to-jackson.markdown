@@ -7,6 +7,8 @@ comments_id: 6
 
 Jackson is the java library to perform serialization and deserialization. So whenever we want to convert a JSON to Java object (deserialization) or whenever we want to convert a Java Object to JSON, we can use the jackson library.
 
+<!--more-->
+
 The polymorphic deserialization refers to deserializing the JSON into any of the subclass based on the type information present in the JSON.
 
 Take an example of Zoo class. If we are given a JSON representation of the zoo class, how our java runtime will know whether it should create an object of type Dog or Cat ?
@@ -53,11 +55,13 @@ The annotation is applied on the parent class as shown below
 
 ### We could have chosen differently as follows:
 
-* Type id: possible choices are CLASS (fully-qualified Java class name), MINIMAL_CLASS (relative Java class name, if base class and sub-class are in same package, leave out package name), NAME (use logical name, separately defined, to determine actual class) and CUSTOM (type id handled using custom resolver)
+* Type id: possible choices are CLASS (fully-qualified Java class name), MINIMAL_CLASS (relative Java class name, if base class and sub-class are in same package, leave out package name), NAME (use logical name, separately defined, to determine actual class) and CUSTOM (type id handled using custom resolver). To specify a custom type name, use the annotion `@JsonTypeName` on the sub class or `JsonSubTypes` on the parent class.
 * Inclusion: possible choices are PROPERTY (include as regular property along with member properties), WRAPPER_OBJECT (use additional JSON wrapper object; type id used as field name, actual serializer Object as value), WRAPPER_ARRAY (first element is type id; second element serialized Object)
 * Property name: for inclusion method of PROPERTY, can use any name; defaults depend on type id.
 * To plug in custom type id resolver use @JsonTypeIdResolver
 * To plug in custom type resolver use @JsonTypeResolver
 
+
+Hope you enjoyed the blog!
 
 Reference: https://github.com/FasterXML/jackson-docs/wiki/JacksonPolymorphicDeserialization

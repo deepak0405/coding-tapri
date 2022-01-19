@@ -7,6 +7,8 @@ comments_id: 10
 
 Recently I came across this interesting problem, where I wanted to take a thread dump of a java service. Our service was restarting multiple times because of which were were not able to download the thread dump at the time of CPU outage. This blogs covered how we were finally able to get the thread dump.
 
+<!--more-->
+
 
 We used the [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) concept from the Kubernetes.
 
@@ -51,3 +53,6 @@ spec:
 4. Redeploy the service using kubectl apply -f manager.yaml.
 
 5. Now all the data inside heapdump is preserved. 
+
+
+Hope you find this blog useful when taking a thread dump for a service which is restarting frequently.

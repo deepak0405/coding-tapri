@@ -7,6 +7,8 @@ comments_id: 7
 
 There are a lot of blogs on what and how of docker but there are quite few blogs on why to use docker. As a beginner I struggled with why exactly we want to use it. In this blog I will be answering this question.
 
+<!--more-->
+
 In 2018, I was working on the OpenPrinting project. The OpenPrinting handles all the code which is required for handling printers and printing using a linux machine. I was using the c code and sometimes I faced issues in running the code as either some required library was missing in my OS or the version of the required library was different in my system. Every developer who is using this application will have to go through the same process.
 
 What happens if we try to deploy this application on a server ? Then we will have to ensure that all the libraries should be correctly installed on the server.

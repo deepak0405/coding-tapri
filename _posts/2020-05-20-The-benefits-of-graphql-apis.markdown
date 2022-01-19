@@ -7,6 +7,8 @@ comments_id: 4
 
 After working on REST APIs for some years, I shifted to the graphql APIs. Though there were some conceptual difference, both the APIs conventions are quite similar. In this blog I would walk you through how graphql apis differs from the REST APIs.
 
+<!--more-->
+
 ### Why graphql was created ?
 As per the rest API convention, we create CRUD and other apis for a resource. Lets say we are designing a study portal for a school. And we want to return the results of all the students of a course. By Rest APIs, we might design it as
 
@@ -25,19 +27,15 @@ The graphQL apis allows fetching the interconnected data too in the same call, w
 
 ### What are the benefits of the GraphQL ?
 
-* Is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
-
 * Provides a complete and understandable description of the data in your API
 
 * Gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-* First built and used inside Facebook in 2012, open sourced and released as a specification in 2015.
-
-* Uses http as transport layer.
-
 * Very helpful in fetching data which is highly interconnected
 
+* GraphQL’s introspection feature allows for navigating into the types and discovering the schema to ensure apps only ask for what’s possible and in the appropriate format. That said, developers can see what the schema can query and how the data is set up there.
 
+* Evolving API entails a problem of having to keep the old version around until developers make the transition to the new one. So, with REST it’s common to offer multiple API versions. However, GraphQL eliminates the need for versioning by deprecating APIs on a field level. 
 
 
 ### Limitations
@@ -45,5 +43,9 @@ The graphQL apis allows fetching the interconnected data too in the same call, w
 * Powerful query language but mutation support lag behinds. The mutation type system is weak and inflexible.
 * Http middleware created for rest are not useful.
 * Http error codes are not relevant. All the information is contained in payload.
+
+### Conclusion
+Both GraphQL APIs and Rest APIs has their benefits and drawbacks, we can use any one of two conventions based on our use case. In our case, the dashboard rest apis were becoming quite slow, and to solve this slowness issue we started using the GraphQL API. 
+
 
 Reference https://graphql.org/

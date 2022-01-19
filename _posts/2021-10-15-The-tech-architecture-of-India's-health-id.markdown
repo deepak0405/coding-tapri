@@ -8,6 +8,8 @@ comments_id: 12
 On Sept 27, PM launched the Ayushman Bharat Digital Mission, which would facilitate the management of the patient's health data using a unique health Id. This mission has the potential of bringing a revolutionary change in the health care infrastructure in India.
 In this blog, I will walk you through a brief overview of the Tech architecture.
 
+<!--more-->
+
 ## User Flow
 ![User Flow]("{{ site.baseurl }}/assets/images/health-id/flow.png")
 

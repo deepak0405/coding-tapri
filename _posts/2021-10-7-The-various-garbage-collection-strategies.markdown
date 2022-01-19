@@ -7,6 +7,8 @@ comments_id: 11
 
 We recently came across an issue where our services were restarting multiple times due to max CPU usage. It took us some time to figure out the root cause, but by changing the GC strategy we were able to reduce the frequency of the outage. In this blog I present to you the various garbage collection strategies.
 
+<!--more-->
+
 One of the most attractive feature of Java is the Garbage collections, unlike C++ we don't need to worry about the memory leakage, we don't have to explicitly call the free method.
 
 JVM supports quite some garbage collector strategies and some of them are experimental too. Most garbage collectors work by splitting the heap into generations. These are called the old generation and the young generation. The young generation is further divided into sections known as eden and the survivor spaces.
@@ -34,4 +36,6 @@ It uses a single thread to process the heap. It will stop all application thread
 It uses multiple threads to collect the young generation, which makes minor GCs much faster than when the serial collector is used. This uses multiple threads to process the old generation as well. Because it uses multiple threads, the throughput collector is often called the parallel collector. The throughput collector stops all application threads during both minor and full GCs, and it fully compacts the old generation during a full GC.
 
 * The G1 GC collector:
-The G1 GC (or garbage first garbage collector) uses a concurrent collection strategy to collect the heap with minimal pauses. In G1 GC, the old generation is processed by background threads that don’t need to stop the application threads to perform most of their work. Because the old generation is divided into regions, G1 GC can clean up objects from the old generation by copying from one region into another, which means that it (at least partially) com‐ pacts the heap during normal processing.
+The G1 GC (or garbage first garbage collector) uses a concurrent collection strategy to collect the heap with minimal pauses. In G1 GC, the old generation is processed by background threads that don’t need to stop the application threads to perform most of their work. Because the old generation is divided into regions, G1 GC can clean up objects from the old generation by copying from one region into another, which means that it (at least partially) compacts the heap during normal processing. The trade-off for avoiding the full GC cycles is CPU time: the (multiple) background threads G1 GC uses to process the old generation must have CPU cycles available at the same time the application threads are running.
+
+These were the three main garbage collectors. In next blog I would like to cover what are the things we take care of during selecting a garbage collector.
