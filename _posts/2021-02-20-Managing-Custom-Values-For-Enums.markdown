@@ -5,7 +5,11 @@ date:   2021-02-20 18:39:31 +0530
 comments_id: 7
 ---
 
-Did you came across a use case where you wanted to add a custom value for a enum ? The most common form in which an enum is used is
+Did you came across a use case where you wanted to add a custom value for a enum ? This blog covers how we can use custom values in our enums.
+
+<!--more-->
+
+The most common form in which an enum is used is
 
 ```
 public enum Animal {
