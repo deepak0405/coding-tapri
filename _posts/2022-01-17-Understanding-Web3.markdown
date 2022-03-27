@@ -10,9 +10,11 @@ My complete Linkedin is full of the word web3, I am seeing more and more startup
 <!--more-->
 
 
-Using Web3, we are trying to create a new version of internet, a version which is decentralized. What does decentralized actually mean ? It means that we might have the support to do more things directly from peer to peer, instead of having a intermediary. How will it benefit the end user ? A lot of end user like me are not having much problem with the current internet and don't directly see a need for a new version, but once things shape up we might start seeing its applications and benefits?
+Using Web3, we are trying to create a new version of internet, a version which is decentralized. What does decentralized actually mean ? It means that we might have the support to do more things directly from peer to peer, instead of having a intermediary. How will it benefit the end user ? A lot of end user like me are not having much problem with the current internet and don't directly see a need for a new version, but once things shape up we might start seeing its applications and benefits.
 
-My next bigger doubt is in the area of web3 based softwares. How the web3 application's backend will be decentralized ? Are we going to do some web3 based optimizations for the requests which are going on the internet. How will web3 change the way frontend is designed ?
+My next bigger doubt is in the area of web3 based applications. In the current web apps, the complete software is managed by the application developer team. How the web3 application's backend will be decentralized ?
+
+Will the frontend and backend architecture change once web3 is ready ? Are we going to do some web3 based optimizations for the requests which are going on the internet ?
 
 Clearly there are a lot of questions. I will be going over all the questions one by one in my next blogs.
 
