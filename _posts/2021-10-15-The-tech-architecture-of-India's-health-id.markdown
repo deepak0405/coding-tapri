@@ -11,7 +11,7 @@ In this blog, I will walk you through a brief overview of the Tech architecture.
 <!--more-->
 
 ## User Flow
-![User Flow]("/assets/images/health-id/flow.png")
+![User Flow]("{{ site.baseurl }}/assets/images/health-id/flow.png")
 
 ## Common Use Cases
 
