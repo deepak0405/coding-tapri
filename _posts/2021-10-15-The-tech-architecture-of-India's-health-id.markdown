@@ -13,6 +13,8 @@ In this blog, I will walk you through a brief overview of the Tech architecture.
 ## User Flow
 <img src="{{ site.baseurl }}/assets/images/health-id/flow.png">
 
+<br>
+
 ## Common Use Cases
 
 ### For Health Care Providers
@@ -31,6 +33,7 @@ In this blog, I will walk you through a brief overview of the Tech architecture.
 * See their health records
 * Provide consent for accessing the health record.
 
+<br>
 
 ## Tech Architecture
 
@@ -44,8 +47,10 @@ So who would create the HIU and HIP? As per the current architecture, private co
 The actual tech flows involve a lot of services in between like Gateway, Registry, Consent Manager etc. To keep the blog simple, I have removed some of those flows.
 
 The below diagram depicts a top-level flow between the various services.
-![Tech Arch]("/assets/images/health-id/tech.jpeg")
+<img src="{{ site.baseurl }}/assets/images/health-id/tech.jpeg">
 
+
+<br>
 
 ## Summary
 This framework provides an easy and complete solution for the communication between the various stack holders involved in the tech stack. The next challenge ahead is to figure out how to make this facility accessible to everyone in India and how a private practitioner can use this service.
