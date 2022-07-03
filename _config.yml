@@ -20,6 +20,7 @@
 
 title: Coding Tapri
 description: >- # this means to ignore newlines until "baseurl:"
+   A blog site to discuss coding practices and tools over a cup of tea.
    Chai par Charcha!!
 baseurl: /coding-tapri
 url: https://deepak0405.github.io
