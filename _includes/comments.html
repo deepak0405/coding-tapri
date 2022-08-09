@@ -1,6 +1,11 @@
 {% assign issues_repo = site.issues_repo %}
 {% assign issue_id = include.issue_id %}
 
+<script src="https://unpkg.com/marked@0.3.6/marked.min.js"></script>
+<script src="https://unpkg.com/dompurify@1.0.8/dist/purify.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.7.8/plugin/relativeTime.js"></script>
+
 <section id="comments">
     <div class="comment-actions">
         <h2>Comments <span id="comments-count"></span></h2>
