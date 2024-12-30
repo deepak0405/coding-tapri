@@ -2,6 +2,7 @@
 layout: post
 title:  "Managing enums with custom values"
 date:   2021-02-20 18:39:31 +0530
+category: tech
 comments_id: 7
 ---
 

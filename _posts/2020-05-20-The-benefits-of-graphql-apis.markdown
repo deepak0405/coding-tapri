@@ -2,6 +2,7 @@
 layout: post
 title:  "The benefits of using a graphql api"
 date:   2020-05-20 16:39:31 +0530
+category: tech
 comments_id: 4
 ---
 

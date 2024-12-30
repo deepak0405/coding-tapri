@@ -2,6 +2,7 @@
 layout: post
 title:  "The tech architecture of Indian Health Id"
 date:   2021-10-15 15:39:31 +0530
+category: tech
 comments_id: 12
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title:  "The various garbage collection strategies"
 date:   2021-10-07 06:39:31 +0530
+category: tech
 comments_id: 11
 ---
 

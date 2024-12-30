@@ -2,6 +2,7 @@
 layout: post
 title:  "Aggregating data by days or hours in MongoDB"
 date:   2020-10-31 15:39:31 +0530
+category: tech
 comments_id: 3
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title:  "Why is it called relational database?"
 date:   2020-10-14 12:39:31 +0530
+category: tech
 comments_id: 6
 ---
 

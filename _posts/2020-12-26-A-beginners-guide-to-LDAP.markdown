@@ -2,6 +2,7 @@
 layout: post
 title:  "A Beginners guide to LDAP"
 date:   2020-12-26 15:39:31 +0530
+category: tech
 comments_id: 1
 ---
 
