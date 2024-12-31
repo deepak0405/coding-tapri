@@ -1,0 +1,89 @@
+---
+layout: post
+title:  "2024: Reflections and Wins"
+date:   2024-12-31 00:00:00 +000
+category: recap
+comments_id: 14
+carousels:
+  - images:
+      - image: "/coding-tapri/assets/images/recap/travel.png"
+      - image: "/coding-tapri/assets/images/recap/norway.jpg"
+      - image: "/coding-tapri/assets/images/recap/budapest.jpg"
+      - image: "/coding-tapri/assets/images/recap/budapest1.jpg"
+      - image: "/coding-tapri/assets/images/recap/croatia.jpg"
+      - image: "/coding-tapri/assets/images/recap/croatia1.jpg"
+      - image: "/coding-tapri/assets/images/recap/turkey.png"
+      - image: "/coding-tapri/assets/images/recap/germany.jpeg"
+  - images:
+      - image: "/coding-tapri/assets/images/recap/sartaaj.jpg"
+      - image: "/coding-tapri/assets/images/recap/keyboard.jpg"
+      - image: "/coding-tapri/assets/images/recap/dance.png"
+  - images:
+      - image: "/coding-tapri/assets/images/recap/family.png"
+      - image: "/coding-tapri/assets/images/recap/brother.jpg"
+      - image: "/coding-tapri/assets/images/recap/house.jpeg"
+  - images:
+      - image: "/coding-tapri/assets/images/recap/studying.jpeg"
+  - images:
+      - image: "/coding-tapri/assets/images/recap/run.jpeg"
+---
+
+This year passed by with the speed of Flash, yet it was packed with adventure and fun. I tried multiple activities out of my comfort zone.
+I travelled a lot and tried new adventures like Speed Boating, diving into swimming pool, paragliding, scuba diving. 
+
+<!--more-->
+
+I am in my late 20s, and this year brought the required maturity, clarity and self-confidence. 
+Though the year posed numerous challenges and confusions, I worked diligently and systematically to solve those, and I am proud of the efforts.
+
+<br><br>
+## Travel
+
+{% include carousel.html height="90" unit="%" duration="7" number="1" %}
+<br>
+I visited Budapest, Norway, Belgium, Croatia, Turkey, and Germany this year, and each destination offered its own unforgettable experiences. Croatia, however, stood out the most. 
+The speed boat tour took us to five remote islands and various blue lagoons. Driving in high speed for hours in the ocean was a memorable experience.
+At one point, our driver followed a massive cruise ship, steering our boat through its rolling waves—a true adrenaline rush.
+The Turkey trip was my first international trip with my college friends and my first big road trip in Europe. 
+It was like reliving the good old college days. The last but not the least, the Germany trip was filled with scenic views of sparkling snowy mountains,
+parrot green fields and beautiful frozen lakes. 
+
+<br><br>
+## Art
+{% include carousel.html height="90" unit="%" duration="7" number="2" %}
+<br>
+I learned the basics of keyboard this year by completing [Alfred's Basic Adult All-in-One Course](https://www.bol.com/nl/nl/p/alfred-s-basic-adult-all-in-one-course/1001004011503570/).
+It is like the college days, where reading the books lays the foundation, but the actual practical applications are very different, difficult and needs guidance. The keyboard learning 
+was not going anywhere, so I left it in between. I completed a four-week Bhangra course. Bhangra is easier and more fun for me compared to other dance forms.
+I also attended a Satinder Sartaaj concert, and hearing him perform live was a soothing experience.
+
+<br><br>
+## Family and Friends
+{% include carousel.html height="90" unit="%" duration="7" number="3" %}
+<br>
+As always, my parents are the most important people in my life. I spent good 3 months in India this time, spending time with my family 
+and helping with the interior designing. The new house is a huge step and big dream for me. I am looking forward to 
+spending time there. This year's birthday was a special one. I spent this birthday in Belgium. 
+Also, later on for the birthday party, we rented a boat and roamed around in Amsterdam's canals. 
+I also spent a good time with my friends, there were numerous board games nights, video calls with friends and trips.
+
+<br><br>
+## Tech Learning
+{% include carousel.html height="90" unit="%" duration="7" number="4" %}
+<br>
+I have a burning desire to learn new technologies, new skills or new approaches. This year, I really wanted to go with the trend, so
+I dove into learning Machine Learning. I am being guided by Mathijs De Jong, who is a senior Machine learning scientist at Booking.
+He is providing me knowledge and insights about real world ML problems. I have completed the 
+book and reading material on Machine Learning and will move to Deep Learning next year. I also released an [engineering blog](https://medium.com/booking-com-development/leverage-graph-technology-for-real-time-fraud-detection-and-prevention-438336076ea5) 
+this year and presented our work at a [Graph Conference](https://logams.github.io/).
+
+
+<br><br>
+## Health and Fitness
+{% include carousel.html height="90" unit="%" duration="7" number="5" %}
+<br>
+The focus on health took a back seat this year. I started running this summer and bought a pair of good running shoes. I started
+with 3k runs and was able to complete 7k runs too. I wasn't very disciplined this year, and would like to improve it in the next year.
+I also joined a swimming course in Indore and learnt the basics. The mental health was good, but there were challenges related to
+uncertainties, expectations settings and boundaries. Overall I did fairly okay with respect to health and fitness.
+
