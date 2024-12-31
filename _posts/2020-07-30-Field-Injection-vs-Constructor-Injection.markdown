@@ -2,6 +2,7 @@
 layout: post
 title:  "Field Injection vs Constructor Injector"
 date:   2020-07-30 19:39:31 +0530
+category: tech
 comments_id: 5
 ---
 

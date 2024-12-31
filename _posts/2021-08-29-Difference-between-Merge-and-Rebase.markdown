@@ -2,6 +2,7 @@
 layout: post
 title:  "Difference between Merge and Rebase"
 date:   2021-08-29
+category: tech
 comments_id: 2
 ---
 

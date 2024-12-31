@@ -2,6 +2,7 @@
 layout: post
 title:  "The ESR Rule for creating the mongo indexes"
 date:   2021-04-11 07:39:31 +0530
+category: tech
 comments_id: 8
 ---
 

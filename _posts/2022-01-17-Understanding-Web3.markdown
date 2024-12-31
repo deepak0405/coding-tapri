@@ -2,6 +2,7 @@
 layout: post
 title:  "The questions in Web3"
 date:   2022-01-17 15:39:31 +0530
+category: tech
 comments_id: 13
 ---
 
