@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Jo beet gai so Bat gai"
-date:   2025-29-01 00:00:00 +0530
+date:   2025-01-30 00:00:00 +0530
 category: poem
 comments_id: 20
 ---
