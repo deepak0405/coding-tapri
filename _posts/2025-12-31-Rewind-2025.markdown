@@ -79,12 +79,12 @@ The shopkeeper was literally handing out food for tasting and speaking in Hindi,
 
 Seeing the diagon alley, bank, the Great Hall, Mandrake Potting, and the three storey bus was simply amazing.
 
-{% include carousel.html height="80" unit="%" duration="7" number="4" %}
+{% include carousel.html height="80" unit="%" duration="27" number="4" %}
 <br>
 
 The Octoberfest was vibrant, everyone was dancing and having a great time. Made some nice memories.
 
-{% include carousel.html height="80" unit="%" duration="7" number="5" %}
+{% include carousel.html height="80" unit="%" duration="27" number="5" %}
 <br>
 
 

@@ -27,29 +27,26 @@
         <div class="carousel__track">
             <ul>
                 {% for item in page.carousels[number].images %}
-                <li class="carousel__slide" data-type="{% if item.image contains '.mp4' %}video{% else %}image{% endif %}">
+                {% if item.image and item.image != "" %}
+                <li class="carousel__slide {% if item.image contains '.mp4' %}carousel__slide--video{% endif %}">
                     {% if item.image contains '.mp4' %}
-                    <video width="100%" height="100%" autoplay muted loop controls>
+                    <video width="100%" height="100%" autoplay muted loop preload="metadata">
                         <source src="{{ item.image }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <script>
-                        console.log('Video slide created for: {{ item.image }}');
-                        console.log('Is MP4:', '{{ item.image }}'.includes('.mp4'));
-                    </script>
                     {% else %}
                     <div class="carousel__image" style="background-image: url('{{ item.image }}');"></div>
-                    <script>
-                        console.log('Image slide created for: {{ item.image }}');
-                    </script>
                     {% endif %}
                 </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
         <div class="carousel__indicators">
             {% for item in page.carousels[number].images %}
+            {% if item.image and item.image != "" %}
             <label class="carousel__indicator" for="{{ number }}{{ letters[forloop.index0] }}"></label>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -70,29 +67,26 @@
         display: none;
     }
 
+    {% assign slide_counter = 0 %}
     {% for item in page.carousels[number].images %}
-    .carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__track {
+    {% if item.image and item.image != "" %}
+    {% assign slide_counter = slide_counter | plus: 1 %}
+    .carousel__activator:nth-of-type({{ slide_counter }}):checked ~ .carousel__track {
         -webkit-transform: translateX(-{{ forloop.index0 }}00%);
         transform: translateX(-{{ forloop.index0 }}00%);
     }
-    .carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__slide:nth-of-type({{ forloop.index }}) {
-        transition: opacity 0.5s, -webkit-transform 0.5s;
-        transition: opacity 0.5s, transform 0.5s;
-        transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
-        top: 0;
-        left: 0;
-        right: 0;
-        opacity: 1;
-        -webkit-transform: scale(1);
-        transform: scale(1);
+    .carousel__activator:nth-of-type({{ slide_counter }}):checked ~ .carousel__track .carousel__slide:nth-of-type({{ slide_counter }}) {
+        opacity: 1 !important;
+        z-index: 1;
     }
-    .carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__controls:nth-of-type({{ forloop.index }}) {
+    .carousel__activator:nth-of-type({{ slide_counter }}):checked ~ .carousel__controls:nth-of-type({{ slide_counter }}) {
         display: block;
         opacity: 1;
     }
-    .carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__indicators .carousel__indicator:nth-of-type({{ forloop.index }}) {
+    .carousel__activator:nth-of-type({{ slide_counter }}):checked ~ .carousel__indicators .carousel__indicator:nth-of-type({{ slide_counter }}) {
         opacity: 1;
     }
+    {% endif %}
     {% endfor %}
 
     .carousel__control {
@@ -160,14 +154,22 @@
         top: 0;
         left: 0;
         right: 0;
-        opacity: 1;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
     }
 
+    {% assign slide_counter = 0 %}
     {% for item in page.carousels[number].images %}
-    .carousel__track .carousel__slide:nth-of-type({{ forloop.index }}) {
+    {% if item.image and item.image != "" %}
+    {% assign slide_counter = slide_counter | plus: 1 %}
+    .carousel__track .carousel__slide:nth-of-type({{ slide_counter }}) {
         -webkit-transform: translateX({{ forloop.index0 }}00%);
         transform: translateX({{ forloop.index0 }}00%);
     }
+    {% endif %}
     {% endfor %}
 
     .carousel--scale .carousel__slide {
@@ -194,17 +196,18 @@
     }
 
     /* Video styling */
-    .carousel__slide video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background: #000;
+    .carousel__slide--video {
+        background: #000 !important;
     }
 
-    /* Debug styling */
-    .carousel__slide[data-type="video"] {
-        background: red !important;
-        border: 2px solid blue !important;
+    .carousel__slide video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .carousel--thumb .carousel__indicator {
@@ -214,33 +217,24 @@
 </style>
 
 <script>
-    // Debug carousel data
-    console.log('Carousel {{ number }} data:', {
-        images: [
-            {% for item in page.carousels[number].images %}
-            '{{ item.image }}'{% unless forloop.last %},{% endunless %}
-            {% endfor %}
-        ]
-    });
-
-    // Check video elements after page load
+    // Debug video loading
     document.addEventListener('DOMContentLoaded', function() {
-        const videoSlides = document.querySelectorAll('#carousel{{ number }} .carousel__slide[data-type="video"]');
-        const videoElements = document.querySelectorAll('#carousel{{ number }} video');
+        const videos = document.querySelectorAll('#carousel{{ number }} video');
+        console.log('Found videos:', videos.length);
 
-        console.log('Video slides found:', videoSlides.length);
-        console.log('Video elements found:', videoElements.length);
+        videos.forEach((video, index) => {
+            console.log(`Video ${index} src:`, video.src);
 
-        videoElements.forEach((video, index) => {
-            console.log(`Video ${index}:`, {
-                src: video.querySelector('source').src,
-                canPlay: video.canPlayType('video/mp4'),
-                readyState: video.readyState
+            // Force video to load
+            video.load();
+
+            video.addEventListener('loadeddata', () => {
+                console.log(`Video ${index} loaded successfully`);
             });
 
-            video.addEventListener('loadstart', () => console.log(`Video ${index} load start`));
-            video.addEventListener('canplay', () => console.log(`Video ${index} can play`));
-            video.addEventListener('error', (e) => console.log(`Video ${index} error:`, e));
+            video.addEventListener('error', (e) => {
+                console.error(`Video ${index} error:`, e);
+            });
         });
     });
 
