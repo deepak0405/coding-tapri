@@ -21,7 +21,6 @@ carousels:
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/bank.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-platform.jpg"
-      - image: "/coding-tapri/assets/images/recap-2025/harry-potter.mp4"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-staircase.jpg"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest.png"

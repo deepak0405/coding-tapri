@@ -28,9 +28,9 @@
             <ul>
                 {% for item in page.carousels[number].images %}
                 {% if item.image and item.image != "" %}
-                <li class="carousel__slide {% if item.image contains '.mp4' %}carousel__slide--video{% endif %}" data-src="{{ item.image }}">
+                <li class="carousel__slide {% if item.image contains '.mp4' %}carousel__slide--video{% endif %}">
                     {% if item.image contains '.mp4' %}
-                    <video width="100%" height="100%" autoplay muted loop preload="metadata" data-debug-src="{{ item.image }}">
+                    <video autoplay muted loop controls playsinline>
                         <source src="{{ item.image }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -172,20 +172,6 @@
     {% endif %}
     {% endfor %}
 
-    .carousel--scale .carousel__slide {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    .carousel__slide {
-        height: 100%;
-        position: absolute;
-        opacity: 0;
-        overflow: hidden;
-    }
-    .carousel__slide .overlay {
-        height: 100%;
-    }
-
     /* Image styling */
     .carousel__slide .carousel__image {
         width: 100%;
@@ -197,18 +183,18 @@
 
     /* Video styling */
     .carousel__slide--video {
-        background: #000 !important;
+        background: #000;
     }
 
     .carousel__slide video {
-        width: 100% !important;
-        height: 100% !important;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        display: block !important;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
+        right: 0;
+        bottom: 0;
     }
 
     .carousel--thumb .carousel__indicator {
@@ -218,45 +204,6 @@
 </style>
 
 <script>
-    // Debug video loading
-    document.addEventListener('DOMContentLoaded', function() {
-        const videos = document.querySelectorAll('#carousel{{ number }} video');
-        const slides = document.querySelectorAll('#carousel{{ number }} .carousel__slide');
-
-        console.log('Carousel {{ number }} - Found videos:', videos.length);
-        console.log('Carousel {{ number }} - All slides:', slides.length);
-
-        slides.forEach((slide, index) => {
-            console.log(`Slide ${index}:`, {
-                dataSrc: slide.getAttribute('data-src'),
-                isVideo: slide.classList.contains('carousel__slide--video')
-            });
-        });
-
-        videos.forEach((video, index) => {
-            const source = video.querySelector('source');
-            console.log(`Video ${index}:`, {
-                videoSrc: video.src,
-                sourceSrc: source ? source.src : 'no source',
-                debugSrc: video.getAttribute('data-debug-src'),
-                readyState: video.readyState,
-                networkState: video.networkState
-            });
-
-            // Force reload
-            video.load();
-
-            video.addEventListener('loadstart', () => console.log(`Video ${index} loadstart`));
-            video.addEventListener('loadedmetadata', () => console.log(`Video ${index} metadata loaded`));
-            video.addEventListener('loadeddata', () => console.log(`Video ${index} data loaded`));
-            video.addEventListener('canplay', () => console.log(`Video ${index} can play`));
-            video.addEventListener('error', (e) => {
-                console.error(`Video ${index} error:`, e);
-                console.error('Video error details:', video.error);
-            });
-        });
-    });
-
     function isVisible(el) {
         while (el) {
             if (el === document) {
