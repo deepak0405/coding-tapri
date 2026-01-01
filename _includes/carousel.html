@@ -30,9 +30,8 @@
                 {% if item.image and item.image != "" %}
                 <li class="carousel__slide {% if item.image contains '.mp4' %}carousel__slide--video{% endif %}" data-slide-index="{{ forloop.index0 }}">
                     {% if item.image contains '.mp4' %}
-                    <video muted loop controls playsinline preload="metadata" style="background: #f0f0f0;">
+                    <video muted loop controls playsinline preload="metadata">
                         <source src="{{ item.image }}" type="video/mp4">
-                        <source src="{{ item.image }}" type="video/webm">
                         <p>Video not supported. <a href="{{ item.image }}" target="_blank">Download video</a></p>
                     </video>
                     {% else %}
@@ -189,18 +188,21 @@
         background-repeat: no-repeat;
     }
 
-    /* Video styling */
+    /* Video styling - show complete video */
     #carousel{{ number }} .carousel__slide--video {
         background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #carousel{{ number }} .carousel__slide video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;  /* Changed from 'cover' to 'contain' */
+        position: relative;   /* Changed from 'absolute' */
     }
 
     .carousel--thumb .carousel__indicator {
@@ -212,46 +214,44 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const carousel{{ number }} = document.getElementById('carousel{{ number }}');
+        const activators = carousel{{ number }}.querySelectorAll('.carousel__activator');
         const videos = carousel{{ number }}.querySelectorAll('video');
 
-        console.log('Carousel {{ number }} - Debugging videos:');
+        // Function to play/pause videos based on active slide
+        function handleVideoPlayback() {
+            const activeInput = carousel{{ number }}.querySelector('.carousel__activator:checked');
+            const activeIndex = Array.from(activators).indexOf(activeInput);
 
-        videos.forEach((video, index) => {
-            const source = video.querySelector('source');
-            console.log(`Video ${index}:`, {
-                src: source ? source.src : 'no source',
-                canPlayType_mp4: video.canPlayType('video/mp4'),
-                canPlayType_webm: video.canPlayType('video/webm'),
-                videoWidth: video.videoWidth,
-                videoHeight: video.videoHeight,
-                networkState: video.networkState,
-                readyState: video.readyState
-            });
+            // Pause all videos first
+            videos.forEach((video, index) => {
+                const slide = video.closest('.carousel__slide');
+                const slideIndex = parseInt(slide.getAttribute('data-slide-index'));
 
-            // Test if video URL is accessible
-            if (source && source.src) {
-                console.log('Testing video URL:', source.src);
-                fetch(source.src, { method: 'HEAD' })
-                    .then(response => {
-                        console.log(`Video ${index} HTTP status:`, response.status);
-                        console.log(`Video ${index} content-type:`, response.headers.get('content-type'));
-                    })
-                    .catch(error => {
-                        console.error(`Video ${index} fetch error:`, error);
+                if (slideIndex === activeIndex) {
+                    video.currentTime = 0;
+                    video.play().catch(e => {
+                        console.log('Auto-play prevented, user interaction required');
                     });
-            }
-
-            video.addEventListener('error', function(e) {
-                console.error(`Video ${index} error:`, {
-                    error: video.error,
-                    code: video.error ? video.error.code : 'no error code',
-                    message: video.error ? video.error.message : 'no error message'
-                });
+                } else {
+                    video.pause();
+                }
             });
+        }
 
-            video.addEventListener('loadstart', () => console.log(`Video ${index} loadstart`));
-            video.addEventListener('loadedmetadata', () => console.log(`Video ${index} metadata loaded`));
-            video.addEventListener('canplay', () => console.log(`Video ${index} can play`));
+        // Listen for carousel changes
+        activators.forEach(activator => {
+            activator.addEventListener('change', handleVideoPlayback);
+        });
+
+        // Initial check for first slide
+        handleVideoPlayback();
+
+        // Handle control clicks
+        const controls = carousel{{ number }}.querySelectorAll('.carousel__control');
+        controls.forEach(control => {
+            control.addEventListener('click', function() {
+                setTimeout(handleVideoPlayback, 100);
+            });
         });
     });
 
