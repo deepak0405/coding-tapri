@@ -23,10 +23,8 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-platform.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter.mp4"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-staircase.jpg"
-      - image: "/coding-tapri/assets/images/recap-2025/potion.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest.png"
-      - image: "/coding-tapri/assets/images/recap-2025/octoberfest-2.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/warsaw-1.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/krakow.jpg"
@@ -58,7 +56,7 @@ The landscape was stunning, especially the Italian, marble-like mountains that g
 On the final day, we hiked up to a mountain hut in the rain, which made the experience even more thrilling. 
 The sound of rainfall, small streams running along the trail, and mountains rising on both sides—what more does a person need?
 
-{% include carousel.html height="120" unit="%" duration="7" number="1" %}
+{% include carousel.html height="140" unit="%" duration="7" number="1" %}
 <br>
 
 
@@ -74,7 +72,7 @@ The big double decker buses in London, the familiar street names and good Indian
 hype behind Big Ben, the intrinsic design is impressive .One of the market in London reminded me of Sarojini Nagar, with narrow shops and a busy crowd. 
 The shopkeeper was literally handing out food for tasting and speaking in Hindi, I haven't seen such energy in any country other than India.
 
-{% include carousel.html height="120" unit="%" duration="7" number="3" %}
+{% include carousel.html height="140" unit="%" duration="7" number="3" %}
 <br>
 
 Seeing the diagon alley, bank, the Great Hall, Mandrake Potting, and the three storey bus was simply amazing.
@@ -84,7 +82,7 @@ Seeing the diagon alley, bank, the Great Hall, Mandrake Potting, and the three s
 
 The Octoberfest was vibrant, everyone was dancing and having a great time. Made some nice memories.
 
-{% include carousel.html height="80" unit="%" duration="27" number="5" %}
+{% include carousel.html height="140" unit="%" duration="27" number="5" %}
 <br>
 
 
