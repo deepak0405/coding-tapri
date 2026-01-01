@@ -25,12 +25,11 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-staircase.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/potion.mp4"
   - images:
-      - image: "/coding-tapri/assets/images/recap-2025/octoberfest.mp4"
+      - image: "/coding-tapri/assets/images/recap-2025/octoberfest-1.png"
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest-2.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/warsaw-1.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/krakow.jpg"
-      - image: "/coding-tapri/assets/images/recap-2025/krakow.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/house.mp4"
   - images:
