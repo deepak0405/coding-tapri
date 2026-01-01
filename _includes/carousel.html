@@ -27,7 +27,16 @@
         <div class="carousel__track">
             <ul>
                 {% for item in page.carousels[number].images %}
-                <li class="carousel__slide" style="background-image: url('{{ item.image }}');"></li>
+                <li class="carousel__slide">
+                    {% if item.image contains '.mp4' %}
+                    <video width="100%" height="100%" autoplay muted loop>
+                        <source src="{{ item.image }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    {% else %}
+                    <div class="carousel__image" style="background-image: url('{{ item.image }}');"></div>
+                    {% endif %}
+                </li>
                 {% endfor %}
             </ul>
         </div>
@@ -53,11 +62,12 @@
     .carousel__activator {
         display: none;
     }
+
     {% for item in page.carousels[number].images %}
     .carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__track {
-                                                             -webkit-transform: translateX(-{{ forloop.index0 }}00%);
-                                                         transform: translateX(-{{ forloop.index0 }}00%);
-                                                         }
+        -webkit-transform: translateX(-{{ forloop.index0 }}00%);
+        transform: translateX(-{{ forloop.index0 }}00%);
+    }
     .carousel__activator:nth-of-type({{ forloop.index }}):checked ~ .carousel__slide:nth-of-type({{ forloop.index }}) {
         transition: opacity 0.5s, -webkit-transform 0.5s;
         transition: opacity 0.5s, transform 0.5s;
@@ -90,7 +100,6 @@
         border-style: solid;
         border-color: #fafafa;
         opacity: 0.35;
-        opacity: 1;
         outline: 0;
         z-index: 3;
     }
@@ -122,6 +131,7 @@
         cursor: pointer;
         opacity: 0.35;
         margin: 0 2.5px 0 2.5px;
+        background-color: #fafafa;
     }
     .carousel__indicator:hover {
         opacity: 0.75;
@@ -145,10 +155,11 @@
         right: 0;
         opacity: 1;
     }
+
     {% for item in page.carousels[number].images %}
     .carousel__track .carousel__slide:nth-of-type({{ forloop.index }}) {
         -webkit-transform: translateX({{ forloop.index0 }}00%);
-    transform: translateX({{ forloop.index0 }}00%);
+        transform: translateX({{ forloop.index0 }}00%);
     }
     {% endfor %}
 
@@ -162,19 +173,38 @@
         opacity: 0;
         overflow: hidden;
     }
-    .carousel__slide .overlay {height: 100%;}
+    .carousel__slide .overlay {
+        height: 100%;
+    }
+
+    /* Image styling */
+    .carousel__slide .carousel__image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Video styling */
+    .carousel__slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .carousel--thumb .carousel__indicator {
         height: 30px;
         width: 30px;
     }
-    .carousel__indicator {
-        background-color: #fafafa;
-    }
+
     {% for item in page.carousels[number].images %}
     .carousel__slide:nth-of-type({{ forloop.index }}),
     .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type({{ forloop.index }}) {
+        {% unless item.image contains '.mp4' %}
         background-size: cover;
         background-position: center;
+        {% endunless %}
     }
     {% endfor %}
 </style>
