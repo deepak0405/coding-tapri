@@ -28,7 +28,7 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/warsaw-1.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/krakow.jpg"
   - images:
-      - image: "/coding-tapri/assets/images/recap-2025/house.mp4"
+      - image: "/coding-tapri/assets/images/recap-2025/house_web.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/family.jpg"
 ---
