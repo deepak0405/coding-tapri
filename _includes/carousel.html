@@ -28,11 +28,12 @@
             <ul>
                 {% for item in page.carousels[number].images %}
                 {% if item.image and item.image != "" %}
-                <li class="carousel__slide {% if item.image contains '.mp4' %}carousel__slide--video{% endif %}">
+                <li class="carousel__slide {% if item.image contains '.mp4' %}carousel__slide--video{% endif %}" data-slide-index="{{ forloop.index0 }}">
                     {% if item.image contains '.mp4' %}
-                    <video autoplay muted loop controls playsinline>
+                    <video muted loop controls playsinline preload="metadata" style="background: #f0f0f0;">
                         <source src="{{ item.image }}" type="video/mp4">
-                        Your browser does not support the video tag.
+                        <source src="{{ item.image }}" type="video/webm">
+                        <p>Video not supported. <a href="{{ item.image }}" target="_blank">Download video</a></p>
                     </video>
                     {% else %}
                     <div class="carousel__image" style="background-image: url('{{ item.image }}');"></div>
@@ -53,7 +54,13 @@
 </div>
 
 <style>
-    .carousel__holder {width: 100%; position: relative; padding-bottom: {{ include.height }}{{ include.unit }}; margin: 1rem 0 1rem;}
+    .carousel__holder {
+        width: 100%;
+        position: relative;
+        padding-bottom: {{ include.height }}{{ include.unit }};
+        margin: 1rem 0 1rem;
+    }
+
     .carousel {
         height: 100%;
         width: 100%;
@@ -62,6 +69,7 @@
         position: absolute;
         padding: 0;
     }
+
     .carousel__controls,
     .carousel__activator {
         display: none;
@@ -182,19 +190,17 @@
     }
 
     /* Video styling */
-    .carousel__slide--video {
+    #carousel{{ number }} .carousel__slide--video {
         background: #000;
     }
 
-    .carousel__slide video {
+    #carousel{{ number }} .carousel__slide video {
         width: 100%;
         height: 100%;
         object-fit: cover;
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
     }
 
     .carousel--thumb .carousel__indicator {
@@ -204,6 +210,51 @@
 </style>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel{{ number }} = document.getElementById('carousel{{ number }}');
+        const videos = carousel{{ number }}.querySelectorAll('video');
+
+        console.log('Carousel {{ number }} - Debugging videos:');
+
+        videos.forEach((video, index) => {
+            const source = video.querySelector('source');
+            console.log(`Video ${index}:`, {
+                src: source ? source.src : 'no source',
+                canPlayType_mp4: video.canPlayType('video/mp4'),
+                canPlayType_webm: video.canPlayType('video/webm'),
+                videoWidth: video.videoWidth,
+                videoHeight: video.videoHeight,
+                networkState: video.networkState,
+                readyState: video.readyState
+            });
+
+            // Test if video URL is accessible
+            if (source && source.src) {
+                console.log('Testing video URL:', source.src);
+                fetch(source.src, { method: 'HEAD' })
+                    .then(response => {
+                        console.log(`Video ${index} HTTP status:`, response.status);
+                        console.log(`Video ${index} content-type:`, response.headers.get('content-type'));
+                    })
+                    .catch(error => {
+                        console.error(`Video ${index} fetch error:`, error);
+                    });
+            }
+
+            video.addEventListener('error', function(e) {
+                console.error(`Video ${index} error:`, {
+                    error: video.error,
+                    code: video.error ? video.error.code : 'no error code',
+                    message: video.error ? video.error.message : 'no error message'
+                });
+            });
+
+            video.addEventListener('loadstart', () => console.log(`Video ${index} loadstart`));
+            video.addEventListener('loadedmetadata', () => console.log(`Video ${index} metadata loaded`));
+            video.addEventListener('canplay', () => console.log(`Video ${index} can play`));
+        });
+    });
+
     function isVisible(el) {
         while (el) {
             if (el === document) {
