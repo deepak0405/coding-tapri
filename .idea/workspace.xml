@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21a5bbf9-e6b0-43d9-bfff-c182f52fc2a5" name="Changes" comment="" />
+    <list default="true" id="21a5bbf9-e6b0-43d9-bfff-c182f52fc2a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/_posts/2025-12-31-Rewind-2025.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2025-12-31-Rewind-2025.markdown" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
