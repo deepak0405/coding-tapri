@@ -20,8 +20,10 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/london-eye.jpg"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/bank.jpg"
+      - image: "/coding-tapri/assets/images/recap-2025/harry_potter_web.mp4"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-platform.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-staircase.jpg"
+      - image: "/coding-tapri/assets/images/recap-2025/potion_web.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest.png"
   - images:
