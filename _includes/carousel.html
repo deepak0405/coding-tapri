@@ -27,14 +27,21 @@
         <div class="carousel__track">
             <ul>
                 {% for item in page.carousels[number].images %}
-                <li class="carousel__slide">
+                <li class="carousel__slide" data-type="{% if item.image contains '.mp4' %}video{% else %}image{% endif %}">
                     {% if item.image contains '.mp4' %}
-                    <video width="100%" height="100%" autoplay muted loop>
+                    <video width="100%" height="100%" autoplay muted loop controls>
                         <source src="{{ item.image }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <script>
+                        console.log('Video slide created for: {{ item.image }}');
+                        console.log('Is MP4:', '{{ item.image }}'.includes('.mp4'));
+                    </script>
                     {% else %}
                     <div class="carousel__image" style="background-image: url('{{ item.image }}');"></div>
+                    <script>
+                        console.log('Image slide created for: {{ item.image }}');
+                    </script>
                     {% endif %}
                 </li>
                 {% endfor %}
@@ -191,25 +198,52 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        background: #000;
+    }
+
+    /* Debug styling */
+    .carousel__slide[data-type="video"] {
+        background: red !important;
+        border: 2px solid blue !important;
     }
 
     .carousel--thumb .carousel__indicator {
         height: 30px;
         width: 30px;
     }
-
-    {% for item in page.carousels[number].images %}
-    .carousel__slide:nth-of-type({{ forloop.index }}),
-    .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type({{ forloop.index }}) {
-        {% unless item.image contains '.mp4' %}
-        background-size: cover;
-        background-position: center;
-        {% endunless %}
-    }
-    {% endfor %}
 </style>
 
 <script>
+    // Debug carousel data
+    console.log('Carousel {{ number }} data:', {
+        images: [
+            {% for item in page.carousels[number].images %}
+            '{{ item.image }}'{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ]
+    });
+
+    // Check video elements after page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoSlides = document.querySelectorAll('#carousel{{ number }} .carousel__slide[data-type="video"]');
+        const videoElements = document.querySelectorAll('#carousel{{ number }} video');
+
+        console.log('Video slides found:', videoSlides.length);
+        console.log('Video elements found:', videoElements.length);
+
+        videoElements.forEach((video, index) => {
+            console.log(`Video ${index}:`, {
+                src: video.querySelector('source').src,
+                canPlay: video.canPlayType('video/mp4'),
+                readyState: video.readyState
+            });
+
+            video.addEventListener('loadstart', () => console.log(`Video ${index} load start`));
+            video.addEventListener('canplay', () => console.log(`Video ${index} can play`));
+            video.addEventListener('error', (e) => console.log(`Video ${index} error:`, e));
+        });
+    });
+
     function isVisible(el) {
         while (el) {
             if (el === document) {
