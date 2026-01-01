@@ -21,9 +21,9 @@ carousels:
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/bank.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-platform.jpg"
-      - link: "/coding-tapri/assets/images/recap-2025/harry-potter.mp4"
+      - image: "/coding-tapri/assets/images/recap-2025/harry-potter.mp4"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-staircase.jpg"
-      - link: "/coding-tapri/assets/images/recap-2025/potion.mp4"
+      - image: "/coding-tapri/assets/images/recap-2025/potion.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest.png"
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest-2.mp4"
@@ -31,7 +31,7 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/warsaw-1.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/krakow.jpg"
   - images:
-      - link: "/coding-tapri/assets/images/recap-2025/house.mp4"
+      - image: "/coding-tapri/assets/images/recap-2025/house.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/family.jpg"
 ---
