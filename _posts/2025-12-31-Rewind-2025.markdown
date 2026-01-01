@@ -11,8 +11,8 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/dolomites-2.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/refugio.jpg"
   - images:
-      - image: "/coding-tapri/assets/images/recap-2025/edinburgh.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/scotland.jpg"
+      - image: "/coding-tapri/assets/images/recap-2025/edinburgh.jpg"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/big-ben.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/bank.jpg"
@@ -20,18 +20,18 @@ carousels:
       - image: "/coding-tapri/assets/images/recap-2025/london-bus.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/london-eye.jpg"
   - images:    
-      - image: "/coding-tapri/assets/images/recap-2025/harry-potter.mp4"
+      - link: "/coding-tapri/assets/images/recap-2025/harry-potter.mp4"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-platform.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/harry-potter-staircase.jpg"
-      - image: "/coding-tapri/assets/images/recap-2025/potion.mp4"
+      - link: "/coding-tapri/assets/images/recap-2025/potion.mp4"
   - images:
-      - image: "/coding-tapri/assets/images/recap-2025/octoberfest-1.png"
+      - image: "/coding-tapri/assets/images/recap-2025/octoberfest.png"
       - image: "/coding-tapri/assets/images/recap-2025/octoberfest-2.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/warsaw-1.jpg"
       - image: "/coding-tapri/assets/images/recap-2025/krakow.jpg"
   - images:
-      - image: "/coding-tapri/assets/images/recap-2025/house.mp4"
+      - link: "/coding-tapri/assets/images/recap-2025/house.mp4"
   - images:
       - image: "/coding-tapri/assets/images/recap-2025/family.jpg"
 ---
@@ -58,7 +58,7 @@ The landscape was stunning, especially the Italian, marble-like mountains that g
 On the final day, we hiked up to a mountain hut in the rain, which made the experience even more thrilling. 
 The sound of rainfall, small streams running along the trail, and mountains rising on both sides—what more does a person need?
 
-{% include carousel.html height="90" unit="%" duration="7" number="1" %}
+{% include carousel.html height="60" unit="%" duration="7" number="1" %}
 <br>
 
 
@@ -66,7 +66,7 @@ The Scotland trip was very different. To me, it felt almost deserted, with Edinb
 Surprisingly, we found great Indian food—I never expected to see restaurants serving naan there. For an Aquaphile like me, 
 it felt like heaven. We stayed in a luxurious hotel, and it truly felt like a dream come true.
 
-{% include carousel.html height="90" unit="%" duration="7" number="2" %}
+{% include carousel.html height="60" unit="%" duration="7" number="2" %}
 <br>
 
 
@@ -74,17 +74,17 @@ The big double decker buses in London, the familiar street names and good Indian
 hype behind Big Ben, the intrinsic design is impressive .One of the market in London reminded me of Sarojini Nagar, with narrow shops and a busy crowd. 
 The shopkeeper was literally handing out food for tasting and speaking in Hindi, I haven't seen such energy in any country other than India.
 
-{% include carousel.html height="90" unit="%" duration="7" number="3" %}
+{% include carousel.html height="60" unit="%" duration="7" number="3" %}
 <br>
 
 Seeing the diagon alley, bank, the Great Hall, Mandrake Potting, and the three storey bus was simply amazing.
 
-{% include carousel.html height="90" unit="%" duration="7" number="4" %}
+{% include carousel.html height="60" unit="%" duration="7" number="4" %}
 <br>
 
 The Octoberfest was vibrant, everyone was dancing and having a great time. Made some nice memories.
 
-{% include carousel.html height="90" unit="%" duration="7" number="5" %}
+{% include carousel.html height="60" unit="%" duration="7" number="5" %}
 <br>
 
 
@@ -95,7 +95,7 @@ I presented the Fraud Networks work along with Rajat at the Big data conference 
 our and work and we got good response from the audience. We stayed in a fully paid 5 star hotel!, one more dream come true. Later
 we traveled to Krakow, a beautiful city with a lof of history.
 
-{% include carousel.html height="90" unit="%" duration="7" number="5" %}
+{% include carousel.html height="60" unit="%" duration="7" number="5" %}
 <br>
 
 
@@ -104,7 +104,7 @@ we traveled to Krakow, a beautiful city with a lof of history.
 The dream home is finally complete, Woooohooooo!. It turned out to be so beautiful and we are so happy. Papa has worked
 a lot to make it true. Everything in the house is so fine, I am super excited to live there. 
 
-{% include carousel.html height="90" unit="%" duration="7" number="6" %}
+{% include carousel.html height="70" unit="%" duration="7" number="6" %}
 <br>
 
 
@@ -113,7 +113,7 @@ a lot to make it true. Everything in the house is so fine, I am super excited to
 Spent a good amout of time with family. I am happy that I convinced my parents to start consulting a Dietitian. 
 Attended Pooja's and Vishal's wedding. Vishal's weeding was super beautiful in a resort like place.
 
-{% include carousel.html height="90" unit="%" duration="7" number="7" %}
+{% include carousel.html height="70" unit="%" duration="7" number="7" %}
 <br>
 
 
